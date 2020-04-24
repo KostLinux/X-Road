@@ -27,16 +27,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="accessRight in this.searchResults()"
-              v-bind:key="accessRight.id"
-              @click="toggleService(accessRight)"
+          <tr v-for="accessRight in searchResults()"
+              v-bind:key="accessRight.service_code"
               class="service-row"
               data-test="access-right-toggle">
             <td class="selection-checkbox">
-              <input type="checkbox"
-                     v-model="selections"
-                     :value="accessRight"
-                     data-test="access-right-checkbox-input">
+              <div>
+              <v-checkbox
+                v-model="selections"
+                :value="accessRight"
+                data-test="access-right-checkbox-input"
+              /></div>
             </td>
             <td>{{accessRight.service_code}}</td>
             <td>{{accessRight.title}}</td>
